@@ -1,0 +1,17 @@
+version: '4.1'
+
+services:
+  clock:
+    build: ./front/
+    ports:
+      - 3000:3000
+    volumes:
+      - ./front:/workspaces/front
+      - node_modules:/workspaces/front/node_modules
+    command: /bin/bash -c "npm install && sleep infinity"
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    working_dir: /workspaces/front
+
+volumes:
+  node_modules:
