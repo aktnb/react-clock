@@ -42,7 +42,7 @@ const SettingPage = () => {
     'my': marginY
   };
 
-  const url = 'http://localhost:3000/view/?' + Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&');
+  const url = 'http://' + window.location.hostname + (window.location.port === '80' ? '' : ':3000') + '/view/?' + Object.keys(params).map(key => `${key}=${encodeURIComponent(params[key])}`).join('&');
 
   return (
     <div>
